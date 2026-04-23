@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $email = clean_input($_POST['email']);
   $password = $_POST['password'];
-  if ($email == "admin@gmail.com") {
+  if ($email == getenv('id') && $password == getenv('password')) {
     $_SESSION['is_admin'] = true;
     header("Location: admin.php");
     exit();

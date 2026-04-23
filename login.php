@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($email == "admin@gmail.com") {
     $_SESSION['is_admin'] = true;
     header("Location: admin.php");
-  }
+    exit();
+}
   if (empty($email) || empty($password)) {
     $error = "All fields are required!";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

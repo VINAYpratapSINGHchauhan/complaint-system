@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $email = clean_input($_POST['email']);
   $password = $_POST['password'];
-  if ($email == getenv('id') && $password == getenv('password')) {
+  if ($email == 'admin@gmail.com' && $password == 'admin123') {
     $_SESSION['is_admin'] = true;
     header("Location: admin.php");
     exit();
-}
+  }
   if (empty($email) || empty($password)) {
     $error = "All fields are required!";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
